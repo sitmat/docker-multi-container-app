@@ -6,7 +6,7 @@ services:
       - POSTGRES_PASSWORD=postgres_password
   redis:
     image: 'redis:latest'
-  server:
+  api: #change name from server to api to be able to add config for nginx
     build:
       dockerfile: Dockerfile.dev
       context: ./server
