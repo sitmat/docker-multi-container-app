@@ -38,3 +38,13 @@ services:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3050:80'
