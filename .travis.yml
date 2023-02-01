@@ -10,12 +10,12 @@ script:
   - docker run -e CI=true matsit56/multi_container_client_test npm test
 
 after_success:
-  -docker build -t matsit56/multi_container_client ./client
-  -docker build -t matsit56/multi_container_nginx ./nginx
-  -docker build -t matsit56/multi_container_server ./server
-  -docker build -t matsit56/multi_container_worker ./worker
+  - docker build -t matsit56/multi_container_client ./client
+  - docker build -t matsit56/multi_container_nginx ./nginx
+  - docker build -t matsit56/multi_container_server ./server
+  - docker build -t matsit56/multi_container_worker ./worker
   #Log in to docker CLI
-  -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Take those images and push them to docker hub
   - docker push matsit56/multi_container_client
   - docker push matsit56/multi_container_nginx
